@@ -1,23 +1,25 @@
 {
-    "name": "alfa6661/laravel-autonumber",
-    "description": "Laravel package to create autonumber for Eloquent model",
+    "name": "marjose123/laravel-autonumber",
+    "description": "A Fork from alfa6661/laravel-autonumber. Laravel package to create autonumber for Eloquent model",
     "keywords": [
         "laravel",
         "eloquent",
         "autonumber"
     ],
-    "homepage": "https://github.com/alfa6661/laravel-autonumber",
+    "homepage": "https://github.com/MarJose123/laravel-autonumber",
     "license": "MIT",
     "authors": [
         {
             "name": "Alfa Adhitya",
             "email": "alfa2159@gmail.com"
+        },
+        {
+            "name": "MarJose123",
+            "email": "hypernate1@gmail.com"
         }
     ],
     "require": {
-        "illuminate/config": "^5.1|^6.0|^7.0|^8.0|^9.0",
-        "illuminate/database": "^5.1|^6.0|^7.0|^8.0|^9.0",
-        "illuminate/support": "^5.1|^6.0|^7.0|^8.0|^9.0"
+        "laravel/framework": ">=5.1"
     },
     "autoload": {
         "psr-4": {
