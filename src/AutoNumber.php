@@ -53,14 +53,14 @@ class AutoNumber
      * @param string $name
      * @return int
      */
-    private function getNextNumber($name)
+    private function getNextNumber(string $name, int $startingValue = 1): int
     {
         $autoNumber = AutoNumberModel::where('name', $name)->first();
 
         if ($autoNumber === null) {
             $autoNumber = new AutoNumberModel([
                 'name' => $name,
-                'number' => 1,
+                'number' => $startingValue !== 1 ? $startingValue : 1,
             ]);
         } else {
             $autoNumber->number += 1;
@@ -95,7 +95,11 @@ class AutoNumber
                 )
             );
 
-            $autoNumber = $this->getNextNumber($uniqueName);
+            if ($config['startingValue']) {
+                $autoNumber = $this->getNextNumber($uniqueName, $config['startingValue']);
+            } else {
+                $autoNumber = $this->getNextNumber($uniqueName);
+            }
 
             if ($length = $config['length']) {
                 $autoNumber = str_replace('?', str_pad($autoNumber, $length, '0', STR_PAD_LEFT), $config['format']);

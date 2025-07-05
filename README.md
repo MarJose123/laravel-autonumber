@@ -10,15 +10,6 @@ You can install the package via composer:
 composer require marjose123/laravel-autonumber
 ```
 
-Register the ServiceProvider in `config/app.php`
-
-```php
-'providers' => [
-    // ...
-    Alfa6661\AutoNumber\AutoNumberServiceProvider::class,
-],
-```
-
 Publish the default configuration
 
 ```
@@ -54,6 +45,7 @@ class Order extends Model
     {
         return [
             'order_number' => [
+                'startingValue' => 11111, // optional if you want to start a different number than 1
                 'format' => 'SO.?', // autonumber format. '?' will be replaced with the generated number.
                 'length' => 5 // The number of digits in an autonumber
             ]
@@ -70,6 +62,7 @@ public function getAutoNumberOptions()
 {
     return [
         'order_number' => [
+            'startingValue' => 11111, // optional if you want to start a different number than 1
             'format' => function () {
                 return 'SO/' . date('Ymd') . '/?'; // autonumber format. '?' will be replaced with the generated number.
             },
