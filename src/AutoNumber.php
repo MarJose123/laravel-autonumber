@@ -51,6 +51,7 @@ class AutoNumber
      * Return the next auto increment number.
      *
      * @param string $name
+     * @param int $startingValue
      * @return int
      */
     private function getNextNumber(string $name, int $startingValue = 1): int
